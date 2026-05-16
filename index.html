@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>今天吃什么</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">今天吃什么</p>
+          <h1 id="page-title">把纠结交给随机，把胃交给好吃的。</h1>
+          <p class="subtitle">选一下口味、预算和做饭意愿，一键生成 3 个靠谱饭点方案。</p>
+        </div>
+      </section>
+
+      <section class="planner" aria-label="推荐条件">
+        <form class="controls" id="food-form">
+          <fieldset>
+            <legend>想吃什么类型</legend>
+            <div class="chip-grid" id="type-options">
+              <label><input type="radio" name="type" value="rice" checked />米饭</label>
+              <label><input type="radio" name="type" value="noodles" />面食</label>
+              <label><input type="radio" name="type" value="hotpot" />火锅</label>
+              <label><input type="radio" name="type" value="stirfry" />小炒</label>
+              <label><input type="radio" name="type" value="late" />夜宵</label>
+              <label><input type="radio" name="type" value="soup" />汤类</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>预算</legend>
+            <div class="budget-row">
+              <input id="budget" type="range" min="15" max="160" value="55" step="5" />
+              <output id="budget-output" for="budget">55 元以内</output>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>想不想做饭</legend>
+            <div class="segmented" role="radiogroup" aria-label="做饭意愿">
+              <label><input type="radio" name="cook" value="yes" />想做饭</label>
+              <label><input type="radio" name="cook" value="no" checked />不想做饭</label>
+              <label><input type="radio" name="cook" value="either" />都可以</label>
+            </div>
+          </fieldset>
+
+          <button class="primary-button" type="submit">随机推荐 3 个</button>
+        </form>
+
+        <section class="results" aria-live="polite">
+          <div class="results-head">
+            <p class="eyebrow">推荐方案</p>
+            <button class="ghost-button" id="shuffle-button" type="button" aria-label="重新随机">换一批</button>
+          </div>
+          <div class="cards" id="results"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
